@@ -1,0 +1,60 @@
+CODJIA-PERRUCHOUD-HAARMAN
+
+STRUCTURE DU TRAVAIL A FAIRE:
+
+- BASE DE DONNEES: MySQL:
+
+	Table: SmartHEPIA
+
+		- Location: VARCAHAR
+		- Sensor_ID: Integer
+		- Temperature: Float
+		- Humidite: Float
+		- Lumiere: Float
+		- Battery: Integer
+		- date: Timestamps
+
+- ROUTES:
+
+Toutes les routes qui vont suivre sont en GET et retourne du JSON
+
+	Température entre deux dates:
+
+		- Ip:Port/Location/Sensor_id/temperature/date_debut/date_fin
+	
+	Humidité entre deux dates:
+
+		- Ip:Port/Location/Sensor_id/humudite/date_debut/date_fin
+
+	Présence entre deux dates:
+
+		- Ip:Port/Location/Sensor_id/presence/date_debut/date_fin
+	
+	Lumière entre deux dates:
+
+		- Ip:Port/Location/Sensor_id/lumiere/date_debut/date_fin
+
+	Pour une salle donnée:
+
+		- Ip:Port/Location/date_debut/date_fin
+
+	Pourcentage de batterie:
+
+		- Ip:Port/battery/pourcentage
+
+	
+	Ip: Adresse IP du serveru
+	Port: Adresse PORT du serveur
+	Location: La salle 
+	Sensor_id: Identifiant du capteur
+	Temperature: Une chaine de caractère pour spécifier quoi retourner
+	Date_debut et Date_fin: Intervalle de temps des mesures à renvoyer
+
+	Structure du JSON:
+
+	{
+		Location: valeur
+		Sensor_id: valeur
+		Type(temperature,humidite,lumiere): valeur
+		date: valeur date
+	}
